@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View anime info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color:burlywood;">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="color: rgba(23, 1, 1, 0.473);" href="#"><b>ANIME-SEKAI</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
+            </li>
+           
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/get/Action">Action</a></li>
+                <li><a class="dropdown-item" href="/get/Romance">Romance</a></li>
+                <li><a class="dropdown-item" href="/get/Comedy">Comedy</a></li>
+                <li><a class="dropdown-item" href="/get/Horror">Horror</a></li>
+                <li><a class="dropdown-item" href="/get/Sci-Fi">Sci-Fi</a></li>
+                <li><a class="dropdown-item" href="/get/Adventure">Adventure</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Admin menu
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/anime-info">Add anime</a></li>
+                <li><a class="dropdown-item" href="/view-anime-info">Get all animes</a></li>
+                <li><a class="dropdown-item" href="/">Log out</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+         
+        </div>
+      </div>
+    </nav> <br> <br>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <table class="table">
+            <thead><tr><th>Anime_id</th> <th>Anime_name</th> <th>Release_date</th> <th>Author</th></tr></thead>
+           <tbody>
+            {% for i in result %}
+            <tr>
+                <td>{{i[0]}}</td> <td>{{i[1]}}</td> <td>{{i[2]}}</td> <td>{{i[3]}}</td> <td><a href="/view-details/{{i[0]}}">View details</a></td>
+            </tr>
+            {% endfor %}
+
+           </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
